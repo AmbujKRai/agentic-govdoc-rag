@@ -1,0 +1,19 @@
+venv/
+__pycache__/
+*.pyc
+.env
+
+# generated indexes/artifacts - reproducible from data/raw + ingestion scripts
+data/qdrant_db/
+data/bm25_index.pkl
+data/processed/*.txt
+data/processed/*.meta.json
+data/processed/chunks.jsonl
+
+# raw corpus files themselves are large binaries reproducible via
+# ingestion/fetch_corpus.py + manifest.json - keep the manifest, drop the files
+data/raw/**/*.pdf
+data/raw/**/*.html
+
+eval/results/*.json
+observability/*.db

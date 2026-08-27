@@ -1,0 +1,32 @@
+fastapi
+uvicorn[standard]
+pydantic
+python-dotenv
+
+# LLM (free tier)
+groq
+
+# embeddings + reranking (local, free)
+sentence-transformers
+torch --index-url https://download.pytorch.org/whl/cpu
+
+# retrieval
+qdrant-client
+rank-bm25
+
+# agent orchestration
+langgraph
+langchain-core
+
+# ingestion
+pypdf
+beautifulsoup4
+requests
+
+# eval + observability
+ragas
+datasets
+arize-phoenix
+
+# tracker
+sqlalchemy
