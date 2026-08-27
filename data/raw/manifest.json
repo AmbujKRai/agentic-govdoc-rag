@@ -1,0 +1,141 @@
+{
+  "_schema": {
+    "doc_id": "short unique slug, e.g. passport_fresh_checklist",
+    "doc_type": "passport | driving_license | pan | scheme_scholarship | scheme_subsidy",
+    "scenario": "e.g. fresh_application | renewal | minor_applicant | lost_document",
+    "title": "human-readable title of the source document",
+    "source_url": "the exact official URL this was retrieved from",
+    "retrieved_date": "YYYY-MM-DD, the date we downloaded/saved it",
+    "effective_date": "YYYY-MM-DD if the source states when the rule took effect, else null",
+    "local_path": "path under data/raw/<doc_type>/ where the file is saved",
+    "verified": "true if a live browser navigation to source_url was confirmed working during recon, false if only found via search and not yet directly confirmed",
+    "render_js": "true if this source is a JS-rendered SPA page where plain HTTP GET returns only the page shell (no real content) - must be fetched with a headless browser instead. Omitted/false for static PDFs and server-rendered HTML.",
+    "notes": "anything about ambiguity, contradictions with other sources, or scraping difficulty"
+  },
+  "documents": [
+    {
+      "doc_id": "passport_instruction_booklet",
+      "doc_type": "passport",
+      "scenario": "fresh_application,renewal,minor_applicant,tatkaal",
+      "title": "Passport Seva - Application Form Instruction Booklet V3.0",
+      "source_url": "https://www.passportindia.gov.in/AppOnlineProject/pdf/ApplicationformInstructionBooklet-V3.0.pdf",
+      "retrieved_date": "2026-08-26",
+      "effective_date": null,
+      "local_path": "data/raw/passport/passport_instruction_booklet.pdf",
+      "verified": true,
+      "notes": "Comprehensive official PDF covering fresh, reissue, minor, and Tatkaal document requirements. Confirmed as a real downloadable file via direct navigation. Homepage also carries a live notice: passport fees revised effective 1 July 2026 - good example of a freshness/versioning case."
+    },
+    {
+      "doc_id": "passport_tatkaal_not_eligible_categories",
+      "doc_type": "passport",
+      "scenario": "tatkaal",
+      "title": "Categories Not Eligible for Tatkaal Scheme (English)",
+      "source_url": "https://www.passportindia.gov.in/AppOnlineProject/pdf/NOT_eligible_for_Tatkaal_Scheme_English.pdf",
+      "retrieved_date": "2026-08-26",
+      "effective_date": null,
+      "local_path": "data/raw/passport/tatkaal_not_eligible.pdf",
+      "verified": true,
+      "notes": "Link confirmed present on homepage (href captured via read_page) but PDF itself not yet fetch-verified. Good candidate for a conditional-eligibility test scenario."
+    },
+    {
+      "doc_id": "dl_new_driver_license_faq",
+      "doc_type": "driving_license",
+      "scenario": "fresh_application",
+      "title": "New DL - New Driver's License services FAQ | Parivahan Sewa",
+      "source_url": "https://parivahan.gov.in/en/faq/new-driver-license-services",
+      "retrieved_date": "2026-08-26",
+      "effective_date": null,
+      "local_path": "data/raw/driving_license/new_dl_faq.html",
+      "verified": true,
+      "render_js": true,
+      "notes": "Plain HTTP GET returns only jumbled partial content (accordion Q&A pairs, no clear document checklist) - this is a JS-rendered FAQ widget. Re-fetched with Playwright. Mentions age-conditional requirement: Form 1A medical certificate required if applicant age >= 40, else Form 1. Good multi-hop/conditional test case."
+    },
+    {
+      "doc_id": "dl_learners_license_faq",
+      "doc_type": "driving_license",
+      "scenario": "learners_license",
+      "title": "Learners License related services FAQ | Parivahan Sewa",
+      "source_url": "https://parivahan.gov.in/en/faq/learners-license-related-services",
+      "retrieved_date": "2026-08-26",
+      "effective_date": null,
+      "local_path": "data/raw/driving_license/learners_license_faq.html",
+      "verified": true,
+      "render_js": true,
+      "notes": "Same JS-rendered FAQ widget as dl_new_driver_license_faq - plain HTTP GET is insufficient. Re-fetched with Playwright."
+    },
+    {
+      "doc_id": "dl_form2",
+      "doc_type": "driving_license",
+      "scenario": "fresh_application,renewal",
+      "title": "FORM 2 (Application form, Rules 10, 14, 17 and 18)",
+      "source_url": "https://parivahan.gov.in/sites/default/files/DownloadForm/cmvr/FORM-2.pdf",
+      "retrieved_date": "2026-08-26",
+      "effective_date": null,
+      "local_path": "data/raw/driving_license/form2.pdf",
+      "verified": true,
+      "notes": "Note: driving license requirements can vary by state (RTO) - decide during ingestion whether to scope to one state or keep generic central MoRTH rules only."
+    },
+    {
+      "doc_id": "pan_documents_required",
+      "doc_type": "pan",
+      "scenario": "fresh_application",
+      "title": "FAQ - PAN Application Procedure (incl. POI/POA/DOB document lists) | Protean (formerly NSDL/TIN)",
+      "source_url": "https://tinpan.proteantech.in/faqs/pan/faq-pan-procedure.html",
+      "retrieved_date": "2026-08-26",
+      "effective_date": null,
+      "local_path": "data/raw/pan/pan_documents_required.html",
+      "verified": true,
+      "render_js": true,
+      "notes": "REPLACED original source (services/pan/documents-required.html) which uses click-to-reveal tabs where the actual document list never appears in the DOM even after JS render - only section headers like '1.1 Indian Citizen' load with no content, would need per-tab click automation to extract. This FAQ page covers the same information (full POI/POA/DOB document lists including minor/HUF/NRI/foreign-citizen conditional cases, plus fee schedule) and renders correctly with Playwright. Domain migrated from protean-tinpan.com to tinpan.proteantech.in."
+    },
+    {
+      "doc_id": "pan_instant_epan_faq",
+      "doc_type": "pan",
+      "scenario": "fresh_application,instant_epan",
+      "title": "Instant e-PAN FAQ | Income Tax Department",
+      "source_url": "https://www.incometax.gov.in/iec/foportal/help/e-filing-generate-instant-e-pan-faq",
+      "retrieved_date": "2026-08-26",
+      "effective_date": null,
+      "local_path": "data/raw/pan/instant_epan_faq.html",
+      "verified": true,
+      "render_js": true,
+      "notes": "Plain HTTP GET returns pure mega-menu navigation cruft, zero FAQ content - incometax.gov.in is a JS SPA. Re-fetched with Playwright."
+    },
+    {
+      "doc_id": "scheme_post_matric_st_guidelines",
+      "doc_type": "scheme_scholarship",
+      "scenario": "eligibility,application",
+      "title": "Post Matric Scholarship Scheme for ST Students - Guidelines",
+      "source_url": "https://scholarships.gov.in/public/schemeGuidelines/Post-matric-guidelines-ST.pdf",
+      "retrieved_date": "2026-08-26",
+      "effective_date": null,
+      "local_path": "data/raw/scheme_scholarship/post_matric_st_guidelines.pdf",
+      "verified": true,
+      "notes": "Confirmed as a real downloadable PDF via direct navigation. Category-conditional eligibility (ST-specific) - good multi-hop eligibility test case."
+    },
+    {
+      "doc_id": "pmkisan_amendment_og",
+      "doc_type": "scheme_subsidy",
+      "scenario": "eligibility,amendment",
+      "title": "PM-KISAN - Amendment to Para 8.1 of Operational Guidelines",
+      "source_url": "https://pmkisan.gov.in/Documents/Amendment%20to%20OG-converted.pdf",
+      "retrieved_date": "2026-08-26",
+      "effective_date": null,
+      "local_path": "data/raw/scheme_subsidy/pmkisan_amendment_og.pdf",
+      "verified": true,
+      "notes": "Confirmed as a real downloadable PDF via direct navigation. This is an AMENDMENT to an earlier guideline - ideal real-world example of a rule that changed over time, directly useful for testing freshness-aware / contradiction-handling retrieval."
+    },
+    {
+      "doc_id": "pmkisan_clarification_clauses",
+      "doc_type": "scheme_subsidy",
+      "scenario": "eligibility",
+      "title": "PM-KISAN - Clarification Relating to Clauses 3.3 and Exclusion Criteria",
+      "source_url": "https://pmkisan.gov.in/Documents/ClarificationsrelatingtoClauses.PDF",
+      "retrieved_date": "2026-08-26",
+      "effective_date": null,
+      "local_path": "data/raw/scheme_subsidy/pmkisan_clarifications.pdf",
+      "verified": true,
+      "notes": "Found via search on official domain, not yet directly browser-verified this session. Should be paired with pmkisan_amendment_og as a contradiction/versioning test pair."
+    }
+  ]
+}
