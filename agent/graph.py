@@ -31,6 +31,7 @@ from langgraph.graph import END, StateGraph
 from typing import TypedDict
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from agent.groq_utils import chat_completion_with_retry
 from agent.router import classify_query
 from retrieval.retriever import retrieve
 
@@ -130,7 +131,8 @@ def retrieve_node(state: AgentState) -> dict:
 def check_sufficiency_node(state: AgentState) -> dict:
     context = format_chunks(state["retrieved_chunks"])
     user_prompt = f"Question: {state['query']}\n\nRetrieved excerpts so far:\n\n{context}"
-    resp = get_groq().chat.completions.create(
+    resp = chat_completion_with_retry(
+        get_groq(),
         model=GENERATION_MODEL,
         messages=[
             {"role": "system", "content": SUFFICIENCY_SYSTEM_PROMPT},
@@ -164,7 +166,8 @@ def should_continue(state: AgentState) -> str:
 def generate_node(state: AgentState) -> dict:
     context = format_chunks(state["retrieved_chunks"])
     user_prompt = f"Question: {state['query']}\n\nSource excerpts:\n\n{context}"
-    resp = get_groq().chat.completions.create(
+    resp = chat_completion_with_retry(
+        get_groq(),
         model=GENERATION_MODEL,
         messages=[
             {"role": "system", "content": GENERATE_SYSTEM_PROMPT},

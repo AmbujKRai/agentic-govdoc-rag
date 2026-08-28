@@ -10,8 +10,13 @@ back to unfiltered search, since a wrong filter is worse than no filter.
 """
 
 import json
+import sys
+from pathlib import Path
 
 from groq import Groq
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from agent.groq_utils import chat_completion_with_retry
 
 DOC_TYPES = ["passport", "driving_license", "pan", "scheme_scholarship", "scheme_subsidy"]
 
@@ -30,7 +35,8 @@ Respond with strict JSON only, no other text:
 
 
 def classify_query(groq_client: Groq, query: str) -> dict:
-    resp = groq_client.chat.completions.create(
+    resp = chat_completion_with_retry(
+        groq_client,
         model=ROUTER_MODEL,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
