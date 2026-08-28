@@ -15,6 +15,7 @@ import sys
 from pathlib import Path
 
 from qdrant_client import QdrantClient
+from qdrant_client.http import models as qmodels
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from retrieval.config import BM25_INDEX_PATH, QDRANT_COLLECTION, QDRANT_PATH
@@ -46,19 +47,27 @@ def _get_qdrant_client() -> QdrantClient:
     return _qdrant_client
 
 
-def dense_search(query: str, top_k: int = 20) -> list[tuple[str, dict]]:
+def dense_search(query: str, top_k: int = 20, doc_type_filter: str | None = None) -> list[tuple[str, dict]]:
     vector = embed_query(query)
+    query_filter = None
+    if doc_type_filter:
+        query_filter = qmodels.Filter(
+            must=[qmodels.FieldCondition(key="doc_type", match=qmodels.MatchValue(value=doc_type_filter))]
+        )
     hits = _get_qdrant_client().query_points(
-        collection_name=QDRANT_COLLECTION, query=vector, limit=top_k
+        collection_name=QDRANT_COLLECTION, query=vector, limit=top_k, query_filter=query_filter
     ).points
     return [(hit.payload["chunk_id"], hit.payload) for hit in hits]
 
 
-def bm25_search(query: str, top_k: int = 20) -> list[tuple[str, dict]]:
+def bm25_search(query: str, top_k: int = 20, doc_type_filter: str | None = None) -> list[tuple[str, dict]]:
     data = _load_bm25()
     bm25, chunks = data["bm25"], data["chunks"]
     scores = bm25.get_scores(tokenize(query))
-    ranked_idx = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)[:top_k]
+    indices = range(len(scores))
+    if doc_type_filter:
+        indices = [i for i in indices if chunks[i]["doc_type"] == doc_type_filter]
+    ranked_idx = sorted(indices, key=lambda i: scores[i], reverse=True)[:top_k]
     return [(chunks[i]["chunk_id"], chunks[i]) for i in ranked_idx if scores[i] > 0]
 
 
@@ -73,9 +82,11 @@ def reciprocal_rank_fusion(*ranked_lists: list[tuple[str, dict]], k: int = RRF_K
     return [payloads[cid] for cid in fused_ids]
 
 
-def hybrid_search(query: str, top_k: int = 10, dense_k: int = 20, bm25_k: int = 20) -> list[dict]:
-    dense = dense_search(query, top_k=dense_k)
-    bm25 = bm25_search(query, top_k=bm25_k)
+def hybrid_search(
+    query: str, top_k: int = 10, dense_k: int = 20, bm25_k: int = 20, doc_type_filter: str | None = None
+) -> list[dict]:
+    dense = dense_search(query, top_k=dense_k, doc_type_filter=doc_type_filter)
+    bm25 = bm25_search(query, top_k=bm25_k, doc_type_filter=doc_type_filter)
     fused = reciprocal_rank_fusion(dense, bm25)
     return fused[:top_k]
 

@@ -17,8 +17,10 @@ from retrieval.hybrid_search import hybrid_search
 from retrieval.rerank import rerank
 
 
-def retrieve(query: str, hybrid_k: int = 20, final_k: int = 5) -> list[dict]:
-    candidates = hybrid_search(query, top_k=hybrid_k)
+def retrieve(
+    query: str, hybrid_k: int = 20, final_k: int = 5, doc_type_filter: str | None = None
+) -> list[dict]:
+    candidates = hybrid_search(query, top_k=hybrid_k, doc_type_filter=doc_type_filter)
     return rerank(query, candidates, top_k=final_k)
 
 
