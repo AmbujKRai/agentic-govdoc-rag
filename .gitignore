@@ -16,3 +16,4 @@ data/raw/**/*.pdf
 data/raw/**/*.html
 
 observability/*.db
+observability/call_log.jsonl

@@ -8,9 +8,14 @@ letting the whole run die on a transient 429.
 """
 
 import re
+import sys
 import time
+from pathlib import Path
 
 from groq import Groq, RateLimitError
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from observability.call_log import log_call
 
 MAX_RETRIES = 4
 DEFAULT_BACKOFF = 10  # seconds, used when the error message doesn't include a suggested wait
@@ -31,11 +36,18 @@ def _parse_wait_seconds(error_message: str) -> float | None:
     return (int(minutes) * 60 if minutes else 0) + float(seconds)
 
 
-def chat_completion_with_retry(client: Groq, **kwargs):
+def chat_completion_with_retry(client: Groq, purpose: str = "unknown", **kwargs):
+    """purpose is a short label (e.g. "router_classify", "sufficiency_check",
+    "agent_generate", "naive_generate", "faithfulness_score") recorded in the
+    call log so observability/dashboard.py can break down token spend by
+    what the call was actually for, not just which model it hit."""
     last_error = None
     for attempt in range(MAX_RETRIES):
         try:
-            return client.chat.completions.create(**kwargs)
+            with log_call(purpose, kwargs.get("model", "unknown")) as holder:
+                response = client.chat.completions.create(**kwargs)
+                holder["response"] = response
+                return response
         except RateLimitError as e:
             last_error = e
             wait_s = _parse_wait_seconds(str(e))

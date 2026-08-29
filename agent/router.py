@@ -37,6 +37,7 @@ Respond with strict JSON only, no other text:
 def classify_query(groq_client: Groq, query: str) -> dict:
     resp = chat_completion_with_retry(
         groq_client,
+        purpose="router_classify",
         model=ROUTER_MODEL,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},

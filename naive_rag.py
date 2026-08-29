@@ -78,6 +78,7 @@ def generate_answer(groq_client: Groq, query: str, chunks: list[dict]) -> str:
     user_prompt = build_prompt(query, chunks)
     resp = chat_completion_with_retry(
         groq_client,
+        purpose="naive_generate",
         model=GROQ_MODEL,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},

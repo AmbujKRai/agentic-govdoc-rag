@@ -1,0 +1,534 @@
+[
+  {
+    "id": "passport_minor_fresh",
+    "question": "I am 17 years old applying for my first passport, what documents do I need?",
+    "naive": {
+      "answer": "Below is what the passport instruction booklet says that is relevant for a 17‑year‑old (a minor) applying for a **first** passport:\n\n| Requirement | What the booklet says |\n|-------------|-----------------------|\n| **Validity you can choose** | A minor between 15 and 18 years may apply either for a 10‑year passport **or** for a passport that is valid only until the applicant turns 18 years old【passport_instruction_booklet】. |\n| **Parent/guardian passport details** | In Column 3.5 you must enter the passport number (or file number, if a passport has only been applied for) of **both or either** parent or legal guardian. If a parent holds a valid passport **with the spouse’s name endorsed**, the minor’s passport can be issued **without police verification**; otherwise police verification will be required【passport_instruction_booklet】. |\n| **If a parent’s passport does not have the spouse’s name** | The parent must either get the spouse’s name added by re‑issuing the passport **or** furnish a marriage certificate. This speeds up processing of the minor’s passport【passport_instruction_booklet】. |\n| **If the applicant is a legal guardian’s child** | A court decree or order establishing the legal guardianship must be attached【passport_instruction_booklet】. |\n| **If neither parent holds a valid passport** | Police verification will be required after the application is submitted【passport_instruction_booklet】. |\n| **Form fields to fill** | • Leave the “Validity Required” column blank (the system will assign the appropriate validity)【passport_instruction_booklet】.<br>• Indicate the desired booklet size (36 pages or 60 pages) in Column 1.5【passport_instruction_booklet】.<br>• Provide full name as you want it to appear on the passport in Column 2.1【passport_instruction_booklet】. |\n\n### What the excerpts **do not** list\nThe booklet refers to a **complete list of documents** in *Section D – “Case No. I (B) in Table 2: List of Applicant Categories and Documents to be submitted with the application”* (and also in Section E for fee details). The specific documents (e.g., birth certificate, address proof, school/college ID, parental consent forms, etc.) are **not included** in the excerpts you provided.\n\n### What you should do next\nTo know the exact documents you must attach (e.g., original birth certificate, address proof, parental consent letters, school/college ID, etc.), please consult the full **Passport Seva – Application Form Instruction Booklet** (especially Section D, Table 2) or the official Passport Seva website. This will give you the complete, official checklist for a 17‑year‑old first‑time applicant.",
+      "coverage": {
+        "coverage": 1.0,
+        "n_found": 1,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "Birth Certificate",
+            "found": true
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 0.9090909090909091,
+        "claims": [
+          {
+            "claim": "A minor between 15 and 18 years may apply either for a 10‑year passport or for a passport that is valid only until the applicant turns 18 years old",
+            "supported": true
+          },
+          {
+            "claim": "In Column 3.5 you must enter the passport number (or file number, if a passport has only been applied for) of both or either parent or legal guardian",
+            "supported": true
+          },
+          {
+            "claim": "If a parent holds a valid passport with the spouse’s name endorsed, the minor’s passport can be issued without police verification; otherwise police verification will be required",
+            "supported": true
+          },
+          {
+            "claim": "If a parent’s passport does not have the spouse’s name, the parent must either get the spouse’s name added by re‑issuing the passport or furnish a marriage certificate; this speeds up processing of the minor’s passport",
+            "supported": true
+          },
+          {
+            "claim": "If the applicant is a legal guardian’s child, a court decree or order establishing the legal guardianship must be attached",
+            "supported": true
+          },
+          {
+            "claim": "If neither parent holds a valid passport, police verification will be required after the application is submitted",
+            "supported": true
+          },
+          {
+            "claim": "Leave the “Validity Required” column blank (the system will assign the appropriate validity)",
+            "supported": false
+          },
+          {
+            "claim": "Indicate the desired booklet size (36 pages or 60 pages) in Column 1.5",
+            "supported": true
+          },
+          {
+            "claim": "Provide full name as you want it to appear on the passport in Column 2.1",
+            "supported": true
+          },
+          {
+            "claim": "The booklet refers to a complete list of documents in Section D – Table 2, and the specific documents (e.g., birth certificate, address proof, school/college ID, parental consent forms, etc.) are not included in the excerpts provided",
+            "supported": true
+          },
+          {
+            "claim": "To know the exact documents you must attach, you should consult the full Passport Seva – Application Form Instruction Booklet (especially Section D, Table 2) or the official Passport Seva website",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5
+    },
+    "agentic": {
+      "answer": "**Documents you will have to submit as a 17‑year‑old (minor) applicant**\n\n| Requirement | What you must produce | Source |\n|-------------|----------------------|--------|\n| **Proof of identity / address** (any two of the list below) | • Driving Licence (valid and issued in the state where you are applying)  <br>• Birth Certificate issued under the Registration of Births and Deaths Act, 1969  <br>• Ration Card  <br>• Aadhaar Card/e‑Aadhaar (12‑digit number)  <br>• Student Photo Identity Card issued by an educational institution  <br>• Permanent Account Number (PAN)  <br>• (For re‑issue only) Last passport issued | 【passport_instruction_booklet】 |\n| **Original documents + self‑attested copies** | All the above documents must be produced in original and a self‑attested photocopy must be attached. | 【passport_instruction_booklet】 |\n| **Parents’ / legal guardian’s passport details** | • Passport number (or file number if a passport has been applied for) of either or both parents/guardian. <br>• If a parent holds a valid passport with the spouse’s name endorsed, the original passport must be shown – this can waive police verification. <br>• If the parent’s passport does not have the spouse’s name, a marriage certificate or a re‑issue of the parent’s passport with the spouse name is required. | 【passport_instruction_booklet】 |\n| **Police verification (if required)** | If neither parent/guardian holds a valid passport (or the spouse name is not endorsed), the minor’s passport will be issued only after police verification. | 【passport_instruction_booklet】 |\n| **Validity option for a 15‑18‑year‑old** | You may choose either: <br>• A 10‑year passport, **or** <br>• A passport that is valid only up to the age of 18 (whichever is earlier). | 【passport_instruction_booklet】 |\n| **Additional forms / declarations** | • A declaration affirming the particulars of the minor (Annexure C, D, E, I as applicable). <br>• If applying “out of turn” (i.e., urgent), you must still submit any two of the documents listed above. | 【passport_instruction_booklet】 |\n\n**Summary of what you need to bring to the Passport Seva centre**\n\n1. **Identity / address proof** – any two from the list (Driving Licence, Birth Certificate, Ration Card, Aadhaar, Student ID, PAN).  \n2. **Originals + self‑attested copies** of those documents.  \n3. **Parents’ / guardian’s passport details** (passport number or file number) and the original passport(s) if they are valid and have spouse name endorsed.  \n4. **Declaration forms** as prescribed in the instruction booklet.  \n5. **Choose the validity** (10‑year or “till 18”) on the application form.  \n\nIf any of the above items (e.g., parents’ passport with spouse name) are missing, police verification will be required.  \n\n*All the points above are taken directly from the Passport Seva “Application Form Instruction Booklet V3.0”.*",
+      "coverage": {
+        "coverage": 1.0,
+        "n_found": 1,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "Birth Certificate",
+            "found": true
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "Proof of identity/address can be any two of: Driving Licence, Birth Certificate, Ration Card, Aadhaar, Student Photo ID, PAN, or last passport (for re‑issue)",
+            "supported": true
+          },
+          {
+            "claim": "All documents must be produced in original with self‑attested copies",
+            "supported": true
+          },
+          {
+            "claim": "Parents/guardian must provide passport number or file number; if a parent has a valid passport with spouse name endorsed, the original passport must be shown and police verification is waived",
+            "supported": true
+          },
+          {
+            "claim": "If a parent’s passport does not have spouse name endorsed, a marriage certificate or a re‑issue of the parent’s passport with the spouse name is required",
+            "supported": true
+          },
+          {
+            "claim": "Police verification is required if neither parent/guardian holds a valid passport (or spouse name is not endorsed)",
+            "supported": true
+          },
+          {
+            "claim": "A 15‑18‑year‑old minor may choose either a 10‑year passport or one valid only up to age 18, whichever is earlier",
+            "supported": true
+          },
+          {
+            "claim": "Additional declarations (Annexures C, D, E, I as applicable) must be submitted; urgent (out‑of‑turn) applications still need any two listed documents",
+            "supported": true
+          },
+          {
+            "claim": "The applicant must bring two identity/address proofs from the specified list",
+            "supported": true
+          },
+          {
+            "claim": "Original documents and self‑attested copies of those proofs must be submitted",
+            "supported": true
+          },
+          {
+            "claim": "Parents’/guardian’s passport details and original passports (if they have spouse name endorsed) must be presented",
+            "supported": true
+          },
+          {
+            "claim": "Declaration forms prescribed in the instruction booklet must be submitted",
+            "supported": true
+          },
+          {
+            "claim": "The applicant must select the desired validity option (10‑year or till 18) on the application form",
+            "supported": true
+          },
+          {
+            "claim": "If any required items (e.g., parents’ passport with spouse name) are missing, police verification will be required",
+            "supported": true
+          },
+          {
+            "claim": "All points are taken directly from the Passport Seva Application Form Instruction Booklet V3.0",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5,
+      "hops": 1
+    }
+  },
+  {
+    "id": "passport_adult_ordinary_fresh",
+    "question": "What documents does an adult Indian citizen by birth need for a fresh ordinary passport?",
+    "naive": {
+      "answer": "**Documents that are mentioned in the Passport‑Seva Instruction Booklet for an adult Indian citizen (by birth) applying for a new (fresh) ordinary passport**\n\n| Requirement | Documents that can be produced (as per the excerpts) | Source |\n|-------------|------------------------------------------------------|--------|\n| **Proof of Identity / Proof of Address (both can be satisfied with the same document)** | • **Aadhaar Card / e‑Aadhaar** – accepted as both Proof of Identity (POI) and Proof of Address (POA) when it is successfully validated against the UIDAI database. <br>• **Driving Licence** – listed among the identity documents that must be “valid and within the jurisdiction of the State of submission of applicant”. | 【passport_instruction_booklet】 (excerpt on Aadhaar as POI/POA) ; 【passport_instruction_booklet】 (first excerpt, item k) |\n| **Proof of Date of Birth** (attach **one** of the following) | • Birth Certificate issued by the Registrar of Births and Deaths (must contain name of child, parents, DOB, place of birth, etc.) <br>• School Leaving / Transfer / Matriculation Certificate showing DOB <br>• Policy Bond from a public life‑insurance company showing DOB <br>• Service record or Pay‑Pension Order (for government servants) showing DOB <br>• Driving Licence (if it carries DOB) <br>• Election Photo Identity Card (contains DOB) <br>• PAN Card (contains DOB) <br>• Declaration from head of an orphanage/child‑care home (if applicable) | 【passport_instruction_booklet】 (excerpt “Proof of Date of Birth – attach one of the following…”) |\n| **Other mandatory documents for a fresh passport** | • **Self‑attested copies of the original documents** (all documents listed above must be produced in original and with self‑attested copies) <br>• **Photographs** (standard passport‑size photos – mentioned elsewhere in the booklet, though not quoted in the excerpts) <br>• **Completed passport application form** (online/print‑out) <br>• **Fee payment receipt** (not shown in the excerpts) | The excerpts repeatedly state “All above documents are required to be produced in original along with self‑attested copies”【passport_instruction_booklet】 (NOTE 3). The booklet also notes that Aadhaar “will expedite processing”【passport_instruction_booklet】 (section on Aadhaar). |\n| **Special cases (not needed for a first‑time adult applicant)** | • Old passport, parents’ passports, citizenship certificate, marriage certificate, adoption deed, etc. – these appear in the longer list of documents for name change, re‑issue, or other special circumstances, but are **not required** for a fresh ordinary passport. | 【passport_instruction_booklet】 (page 14 list of documents) |\n\n---\n\n### What the excerpts do **not** tell us\n\nThe excerpts do not provide a **complete, step‑by‑step checklist** for a fresh ordinary passport (e.g., exact number of photographs, size specifications, fee amount, online application URL, declaration forms, or the “Annexure” forms that may be required for minors or special cases).  \n\n**Action:** Please verify the full list of required documents, photograph specifications, fee details, and any additional declarations on the official Passport Seva website or the latest version of the *Application Form Instruction Booklet* before submitting your application.",
+      "coverage": {
+        "coverage": 1.0,
+        "n_found": 1,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "Proof of Present Address",
+            "found": true
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 0.5555555555555556,
+        "claims": [
+          {
+            "claim": "Aadhaar Card/e‑Aadhaar is accepted as both Proof of Identity and Proof of Address when validated against the UIDAI database",
+            "supported": true
+          },
+          {
+            "claim": "Driving Licence is listed among the identity documents that must be valid and within the jurisdiction of the state of submission",
+            "supported": true
+          },
+          {
+            "claim": "Proof of Date of Birth can be any one of: Birth Certificate, School Leaving/Transfer/Matriculation Certificate, Policy Bond, Service record or Pay‑Pension Order, Driving Licence (if it shows DOB), Election Photo Identity Card, PAN Card, or a declaration from the head of an orphanage/child‑care home",
+            "supported": true
+          },
+          {
+            "claim": "All required documents must be produced in original along with self‑attested copies",
+            "supported": true
+          },
+          {
+            "claim": "Standard passport‑size photographs are required",
+            "supported": false
+          },
+          {
+            "claim": "A completed passport application form (online or printed) is required",
+            "supported": false
+          },
+          {
+            "claim": "A fee payment receipt is required",
+            "supported": false
+          },
+          {
+            "claim": "Documents such as old passport, parents’ passports, citizenship certificate, marriage certificate, adoption deed, etc., are listed for special cases and are not required for a fresh ordinary passport",
+            "supported": false
+          },
+          {
+            "claim": "The provided excerpts do not give a complete step‑by‑step checklist (e.g., exact photograph specifications, fee amount, online URL, declaration forms)",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5
+    },
+    "agentic": {
+      "answer": "**Documents required for a fresh ordinary passport (Adult – Citizen of India by birth)**  \n\n| Document No. | What the document is | When it is needed |\n|--------------|---------------------|-------------------|\n| **1** | **Proof of present address** – any one of the accepted address‑proofs (water bill, telephone/electricity bill, income‑tax assessment order, Aadhaar card/letter, rent agreement, bank passbook, etc.) | Mandatory for every fresh passport applicant【passport_instruction_booklet†page 8】 |\n| **2** | **Proof of date of birth** – one of the listed DOB documents (birth certificate, school leaving/ matriculation certificate, policy bond, service record or pension order, driving licence, election‑photo ID, PAN card, orphanage declaration, etc.)【passport_instruction_booklet†page 13】 |\n| **3** | **Documentary proof of eligibility for the Non‑ECR (formerly ECNR) category** – any document that shows the applicant belongs to the Non‑ECR group (e.g., a declaration, previous passport showing “Non‑ECR”, etc.)【passport_instruction_booklet†page 8】 |\n| **41** | **Document required only if post‑police verification is required** (the “out‑of‑turn issuance of passport” document). It is attached when the passport office asks for post‑verification paperwork【passport_instruction_booklet†page 8】 |\n\n**Summary**\n\nAn adult Indian citizen by birth applying for a fresh ordinary passport must submit:\n\n1. **Proof of present address** (Document 1).  \n2. **Proof of date of birth** (Document 2).  \n3. **Proof of Non‑ECR status** (Document 3).  \n\nIf the passport office indicates that **post‑police verification** will be done, the applicant must also attach **Document 41**.\n\nThese are the only documents listed for the “Ordinary Case (Citizen of India by birth)” in the Passport Seva Instruction Booklet (Table 2, Case I A 1)【passport_instruction_booklet†page 8】.  \n\n*If you need the exact form of Document 41 or further clarification on what qualifies as Non‑ECR proof, please refer to the official Passport Seva website or the full “Overall List of Documents” (Table 3) in the instruction booklet.*",
+      "coverage": {
+        "coverage": 1.0,
+        "n_found": 1,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "Proof of Present Address",
+            "found": true
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "For a fresh ordinary passport for an adult Indian citizen by birth, the required documents are Document 1 (proof of present address), Document 2 (proof of date of birth), Document 3 (proof of Non‑ECR eligibility), and Document 41 if post‑police verification is required",
+            "supported": true
+          },
+          {
+            "claim": "Proof of present address, proof of date of birth, and proof of Non‑ECR status are mandatory; Document 41 is required only when post‑police verification is indicated",
+            "supported": true
+          },
+          {
+            "claim": "These are the only documents listed for the “Ordinary Case (Citizen of India by birth)” in Table 2, Case I A 1 of the Passport Seva Instruction Booklet",
+            "supported": true
+          },
+          {
+            "claim": "Document 41 is the “out‑of‑turn issuance of passport” document",
+            "supported": true
+          },
+          {
+            "claim": "For exact details on Document 41 or Non‑ECR proof, one should refer to the official Passport Seva website or Table 3 of the instruction booklet",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 9,
+      "hops": 2
+    }
+  },
+  {
+    "id": "dl_renewal_over_40",
+    "question": "What documents do I need to renew my private driving license if I am above 40 years old?",
+    "naive": {
+      "answer": "To renew a **private driving licence** when you are **over 40 years old**, the application form (FORM 2) requires you to submit:\n\n| Category | Required document(s) | Source |\n|----------|----------------------|--------|\n| **Proof of address / age** (pick one) | • Aadhaar Card  <br>• Electoral Roll  <br>• Life Insurance Policy  <br>• Passport  <br>• School Certificate  <br>• Birth Certificate  <br>• Pay slip issued by any State or Central Government office or a local body | 【dl_form2】 |\n| **Medical fitness** (mandatory for renewal when the applicant is > 40 years) | • Medical Certificate in **Form‑1A** (issued by a Registered Medical Practitioner not below the rank of Civil Surgeon) | 【dl_form2】 |\n| **Other supporting documents (as applicable)** | • Self‑declaration for physical fitness (Form‑1)  <br>• Photograph (passport‑size, ≤ 50 KB for online)  <br>• Any additional document specified by the State Government | 【dl_form2】 |\n\n**What is missing?**  \nThe excerpts do not list any fee details, the exact format for the medical certificate, or whether a recent driving test is required for private licences after age 40. For the complete, up‑to‑date checklist and procedural steps, you should verify the requirements on the official Parivahan Sewa portal or at your local Zonal/Transport Office.",
+      "coverage": {
+        "coverage": 0.0,
+        "n_found": 0,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "Form-1A",
+            "found": false
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "Proof of address/age documents such as Aadhaar Card, Electoral Roll, Life Insurance Policy, Passport, School Certificate, Birth Certificate, and Pay slip are required for renewal",
+            "supported": true
+          },
+          {
+            "claim": "Medical fitness is mandatory for renewal when the applicant is over 40 and requires a Medical Certificate in Form‑1A issued by a Registered Medical Practitioner not below the rank of Civil Surgeon",
+            "supported": true
+          },
+          {
+            "claim": "Other supporting documents may include a self‑declaration for physical fitness (Form‑1), a passport‑size photograph (≤50 KB for online), and any additional documents specified by the State Government",
+            "supported": true
+          },
+          {
+            "claim": "The provided excerpts do not include any fee details for the renewal process",
+            "supported": true
+          },
+          {
+            "claim": "The provided excerpts do not specify the exact format required for the medical certificate",
+            "supported": true
+          },
+          {
+            "claim": "The provided excerpts do not indicate whether a recent driving test is required for private licences after age 40",
+            "supported": true
+          },
+          {
+            "claim": "The user should verify the complete, up‑to‑date checklist and procedural steps on the official Parivahan Sewa portal or at the local Zonal/Transport Office",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5
+    },
+    "agentic": {
+      "answer": "**Documents you must submit (or upload) when you apply for renewal of a **private** driving licence after you have turned 40 years old**\n\n| Requirement | What you need to provide | Source |\n|-------------|--------------------------|--------|\n| **Proof of identity + address + age** (pick **one** document that can serve for all three) | • Aadhaar Card  <br>• Electoral Roll  <br>• Life‑Insurance Policy  <br>• Passport  <br>• School Certificate  <br>• Birth Certificate  <br>• Pay‑slip issued by a State/ Central Government office or local body | 【dl_form2】 |\n| **Medical fitness certificate** (mandatory for renewal > 40 yrs) | **Form‑1A** – Medical Certificate issued by a Registered Medical Practitioner (not below the rank of Civil Surgeon) confirming your fitness for driving | 【dl_form2】 |\n| **Self‑declaration of physical fitness** | **Form‑1** – Self Declaration for Physical Fitness (to be attached along with the medical certificate) | 【dl_form2】 |\n| **Affidavit (if required by the State)** | Affidavit sworn before an Executive Magistrate or Notary Public (or a First‑Class Judicial Magistrate) | 【dl_form2】 |\n| **Certificate of age** (sometimes required in addition to the medical certificate) | Certificate from a Registered Medical Practitioner (not below Civil Surgeon) stating your age | 【dl_form2】 |\n| **Photograph** | Recent passport‑size colour photograph | 【dl_form2】 |\n| **Other State‑specified documents** | Any additional document(s) that the State Government may ask for (e.g., change‑of‑name documents, police complaint copy if the licence was lost, etc.) | 【dl_form2】 |\n| **Originals for verification** | You must carry the original copies of all the above documents when you visit the Zonal Office/Transport Department | 【dl_new_driver_license_faq】 |\n\n**Summary**\n\nTo renew a private driving licence after age 40 you need:\n\n1. One proof of address/age (Aadhaar, passport, etc.).  \n2. **Form‑1A** medical certificate (mandatory for renewal > 40).  \n3. **Form‑1** self‑declaration of physical fitness.  \n4. Recent photograph.  \n5. Affidavit and/or age certificate if the State asks for them.  \n6. Any other document specified by your State (e.g., name‑change papers, police complaint for a lost licence).  \n\nCarry the original documents to the concerned Zonal Office/Transport Department for verification. If your State requires additional paperwork not listed here, you will need to provide those as well.",
+      "coverage": {
+        "coverage": 0.0,
+        "n_found": 0,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "Form-1A",
+            "found": false
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "Proof of identity, address, and age can be provided with one document such as Aadhaar, Electoral Roll, Life‑Insurance Policy, Passport, School Certificate, Birth Certificate, or Pay‑slip",
+            "supported": true
+          },
+          {
+            "claim": "A medical fitness certificate (Form‑1A) issued by a Registered Medical Practitioner (not below Civil Surgeon) is mandatory for renewal after age 40",
+            "supported": true
+          },
+          {
+            "claim": "A self‑declaration of physical fitness (Form‑1) must be attached with the medical certificate",
+            "supported": true
+          },
+          {
+            "claim": "An affidavit may be required, sworn before an Executive Magistrate, Notary Public, or First‑Class Judicial Magistrate",
+            "supported": true
+          },
+          {
+            "claim": "A certificate of age from a Registered Medical Practitioner (not below Civil Surgeon) may be required in addition to the medical certificate",
+            "supported": true
+          },
+          {
+            "claim": "A recent passport‑size colour photograph is required",
+            "supported": true
+          },
+          {
+            "claim": "Any additional documents specified by the State (e.g., name‑change papers, police complaint for a lost licence) may be required",
+            "supported": true
+          },
+          {
+            "claim": "Original copies of all documents must be carried for verification at the Zonal Office/Transport Department",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5,
+      "hops": 1
+    }
+  },
+  {
+    "id": "dl_validity_private",
+    "question": "What is the validity period of a private driving license in India?",
+    "naive": {
+      "answer": "A private driving licence is normally issued for **20 years from the date of issue or until the holder reaches 40 years of age, whichever comes first**. If the holder is already 40 years old, the licence is then issued for **10 years**, and thereafter for **5 years** on subsequent renewals【dl_new_driver_license_faq】.",
+      "coverage": {
+        "coverage": 0.0,
+        "n_found": 0,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "20 years",
+            "found": false
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "Private driving licence is issued for 20 years from issue date or until holder reaches 40 years, whichever is earlier",
+            "supported": true
+          },
+          {
+            "claim": "If the holder is already 40 years old, the licence is issued for 10 years",
+            "supported": true
+          },
+          {
+            "claim": "Subsequent renewals are issued for 5 years",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5
+    },
+    "agentic": {
+      "answer": "A private (non‑transport) driving licence is normally issued **for 20 years from the date of issue, or up to the holder’s 40th birthday – whichever comes first**. If the holder is already 40 years old, the licence is then issued for **10 years**, and thereafter for **5 years** on subsequent renewals【dl_new_driver_license_faq】.",
+      "coverage": {
+        "coverage": 0.0,
+        "n_found": 0,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "20 years",
+            "found": false
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "Private (non‑transport) driving licence is issued for 20 years from issue date or until the holder turns 40, whichever is earlier",
+            "supported": true
+          },
+          {
+            "claim": "If the holder is already 40 years old, the licence is issued for 10 years",
+            "supported": true
+          },
+          {
+            "claim": "Subsequent renewals after that are for 5 years each",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5,
+      "hops": 1
+    }
+  },
+  {
+    "id": "pan_proof_of_identity",
+    "question": "What documents can serve as proof of identity for a PAN card application for an Indian citizen?",
+    "naive": {
+      "answer": "For an Indian citizen (whether applying from within India or from abroad), the PAN‑application rules state that **a copy of the Aadhaar Card issued by the Unique Identification Authority of India (UIDAI) can be used as proof of identity** [pan_documents_required].\n\n*The excerpt only lists the Aadhaar Card as an acceptable identity document. If you need the complete list of other documents that may also be accepted (e.g., passport, voter‑ID, etc.), you will need to consult the official PAN‑application guidelines on the Protean/NSDL website.*",
+      "coverage": {
+        "coverage": 1.0,
+        "n_found": 1,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "Aadhaar",
+            "found": true
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 0.6666666666666666,
+        "claims": [
+          {
+            "claim": "A copy of the Aadhaar Card can be used as proof of identity for an Indian citizen applying for PAN",
+            "supported": true
+          },
+          {
+            "claim": "The excerpt only lists the Aadhaar Card as an acceptable identity document",
+            "supported": false
+          },
+          {
+            "claim": "To get the complete list of acceptable identity documents, one should consult the official PAN‑application guidelines on the Protean/NSDL website",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5
+    },
+    "agentic": {
+      "answer": "For an Indian citizen (individual or HUF) applying for a PAN card, the **proof‑of‑identity (POI) document** that is explicitly listed in the source is:\n\n* **Aadhaar Card** issued by the Unique Identification Authority of India 【pan_documents_required】  \n\nThe excerpt says “Copy of any of the following documents bearing name of the applicant …” and then lists Aadhaar Card as one of the options, but the rest of the list is not included in the provided text.  \n\n**What’s missing:** The complete list of other acceptable POI documents (e.g., voter ID, passport, driving licence, etc.) is not present in the excerpts you supplied. To see the full set of documents that can be used as proof of identity, you should consult the official PAN‑application FAQ or the “Supporting Documents” section on the Protean (formerly NSDL/TIN) website.",
+      "coverage": {
+        "coverage": 1.0,
+        "n_found": 1,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "Aadhaar",
+            "found": true
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "Aadhaar Card issued by UIDAI is the proof‑of‑identity document explicitly listed for Indian citizens applying for a PAN card",
+            "supported": true
+          },
+          {
+            "claim": "The excerpt says “Copy of any of the following documents bearing name of the applicant …” and then lists Aadhaar Card as one of the options",
+            "supported": true
+          },
+          {
+            "claim": "The rest of the list of acceptable POI documents is not included in the provided text",
+            "supported": true
+          },
+          {
+            "claim": "The complete list of other acceptable POI documents (e.g., voter ID, passport, driving licence) is not present in the excerpts supplied",
+            "supported": true
+          },
+          {
+            "claim": "To see the full set of documents that can be used as proof of identity, one should consult the official PAN‑application FAQ or the Supporting Documents section on the Protean website",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 7,
+      "hops": 2
+    }
+  },
+  {
+    "id": "pan_form_foreign_citizen",
+    "question": "What form should a foreign citizen use to apply for a PAN card?",
+    "error": "Groq rate limit requires a 164s wait (likely daily quota) - exceeds MAX_AUTO_WAIT=90s, not auto-retrying. Original error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kkw2gr0ye2qay0srzc6npvrj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198325, Requested 2054. Please try again in 2m43.728s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+  },
+  {
+    "id": "pmkisan_cutoff_date",
+    "question": "What is the cutoff date for determining land ownership eligibility under PM-KISAN?",
+    "error": "Groq rate limit requires a 552s wait (likely daily quota) - exceeds MAX_AUTO_WAIT=90s, not auto-retrying. Original error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kkw2gr0ye2qay0srzc6npvrj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198320, Requested 2957. Please try again in 9m11.664s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+  },
+  {
+    "id": "pmkisan_aadhaar_change",
+    "question": "Has the Aadhaar requirement for PM-KISAN changed recently, and what is the current rule?",
+    "error": "Groq rate limit requires a 285s wait (likely daily quota) - exceeds MAX_AUTO_WAIT=90s, not auto-retrying. Original error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kkw2gr0ye2qay0srzc6npvrj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198158, Requested 2502. Please try again in 4m45.12s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+  },
+  {
+    "id": "scholarship_income_limit",
+    "question": "I am an ST student - what is the maximum family income allowed to be eligible for the post-matric scholarship?",
+    "error": "Groq rate limit requires a 304s wait (likely daily quota) - exceeds MAX_AUTO_WAIT=90s, not auto-retrying. Original error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kkw2gr0ye2qay0srzc6npvrj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198053, Requested 2651. Please try again in 5m4.128s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+  },
+  {
+    "id": "scholarship_multiple_scholarships",
+    "question": "Can a post-matric scholarship recipient also receive another scholarship at the same time?",
+    "error": "Groq rate limit requires a 304s wait (likely daily quota) - exceeds MAX_AUTO_WAIT=90s, not auto-retrying. Original error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kkw2gr0ye2qay0srzc6npvrj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197909, Requested 2795. Please try again in 5m4.128s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+  }
+]

@@ -46,6 +46,7 @@ def score_faithfulness(groq_client: Groq, question: str, answer: str, contexts: 
 
     resp = chat_completion_with_retry(
         groq_client,
+        purpose="faithfulness_score",
         model=FAITHFULNESS_MODEL,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},

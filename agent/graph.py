@@ -133,6 +133,7 @@ def check_sufficiency_node(state: AgentState) -> dict:
     user_prompt = f"Question: {state['query']}\n\nRetrieved excerpts so far:\n\n{context}"
     resp = chat_completion_with_retry(
         get_groq(),
+        purpose="sufficiency_check",
         model=GENERATION_MODEL,
         messages=[
             {"role": "system", "content": SUFFICIENCY_SYSTEM_PROMPT},
@@ -168,6 +169,7 @@ def generate_node(state: AgentState) -> dict:
     user_prompt = f"Question: {state['query']}\n\nSource excerpts:\n\n{context}"
     resp = chat_completion_with_retry(
         get_groq(),
+        purpose="agent_generate",
         model=GENERATION_MODEL,
         messages=[
             {"role": "system", "content": GENERATE_SYSTEM_PROMPT},
