@@ -37,7 +37,7 @@ from retrieval.retriever import retrieve
 
 load_dotenv()
 
-GENERATION_MODEL = "openai/gpt-oss-120b"
+GENERATION_MODEL = os.environ.get("GROQ_GENERATION_MODEL", "openai/gpt-oss-120b")
 MAX_HOPS = 2
 
 _groq_client: Groq | None = None
