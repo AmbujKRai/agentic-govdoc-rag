@@ -22,10 +22,12 @@ langchain-core
 pypdf
 beautifulsoup4
 requests
+playwright  # for JS-rendered source pages - see ingestion/fetch_corpus.py
 
 # eval + observability
-ragas
-datasets
+# (faithfulness scoring is implemented directly against Groq in eval/faithfulness.py -
+# the `ragas` package's LLM factory unconditionally imports langchain_community's
+# Vertex AI integration, which fails without the unrelated Google Cloud SDK installed)
 arize-phoenix
 
 # tracker

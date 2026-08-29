@@ -15,5 +15,4 @@ data/processed/chunks.jsonl
 data/raw/**/*.pdf
 data/raw/**/*.html
 
-eval/results/*.json
 observability/*.db

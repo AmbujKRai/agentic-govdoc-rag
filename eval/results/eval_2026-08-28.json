@@ -1,0 +1,682 @@
+[
+  {
+    "id": "passport_minor_fresh",
+    "question": "I am 17 years old applying for my first passport, what documents do I need?",
+    "naive": {
+      "answer": "**Documents you’ll need (as per the excerpts)**  \n\n| What you must provide | Source |\n|------------------------|--------|\n| **Parent/guardian passport details** – write the passport number of either parent (or both) in the “If applicant is minor” column. If a parent has applied for a passport but not yet issued, enter the file number instead. | [passport_instruction_booklet] |\n| **Original parent passports** – present the original passports for verification of particulars. | [passport_instruction_booklet] |\n| **Marriage certificate (if required)** – if a parent’s passport does **not** have the spouse’s name endorsed, you must either get the spouse name added to the passport (by re‑issue) or furnish a marriage certificate. | [passport_instruction_booklet] |\n| **Police verification** – if neither parent holds a valid passport, the minor’s passport will be issued only after police verification. | [passport_instruction_booklet] |\n| **Choice of validity** – as a 17‑year‑old you can apply for either a 10‑year passport or a passport valid until you turn 18. The validity you choose will be indicated in the “Validity Required” column. | [passport_instruction_booklet] |\n\n**What the excerpts do not list**  \nThe excerpts do not provide the full list of supporting documents that are normally required for a passport application (e.g., proof of age, proof of address, photographs, etc.). For the complete set of documents you must refer to the official Passport Seva instructions, specifically Section D “Case No. I (B) in Table 2: List of Applicant Categories and Documents to be submitted with the application” and the full application form.\n\n**Next step**  \nPlease verify the complete document checklist on the official Passport Seva website or by consulting the full application form and the referenced sections.",
+      "coverage": {
+        "coverage": 0.0,
+        "n_found": 0,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "Birth Certificate",
+            "found": false
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "Parent/guardian passport details must be written in the minor’s application, using passport number or file number if not yet issued",
+            "supported": true
+          },
+          {
+            "claim": "Original parent passports must be presented for verification of particulars",
+            "supported": true
+          },
+          {
+            "claim": "If a parent’s passport lacks spouse name endorsement, a marriage certificate must be furnished or spouse name added via re‑issue",
+            "supported": true
+          },
+          {
+            "claim": "If neither parent holds a valid passport, the minor’s passport will be issued only after police verification",
+            "supported": true
+          },
+          {
+            "claim": "A 17‑year‑old can apply for either a 10‑year passport or a passport valid until age 18, indicated in the “Validity Required” column",
+            "supported": true
+          },
+          {
+            "claim": "The excerpts do not list other supporting documents such as proof of age, proof of address, photographs, etc.",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5
+    },
+    "agentic": {
+      "answer": "**Documents you’ll need to submit for a first passport at age 17**\n\n| What you need | Why it’s required | Source |\n|---------------|------------------|--------|\n| **Proof of present address** (Document No. 1) – e.g., Aadhaar card, water bill, telephone bill, electricity bill, etc. | The passport application requires a current address proof for all applicants. | [passport_instruction_booklet] |\n| **Proof of date of birth** (Document No. 2) – e.g., birth certificate issued under the Registration of Births and Deaths Act, 1969. | A minor’s date of birth must be verified. | [passport_instruction_booklet] |\n| **Parents’ passport details** – passport number (or file number if they are applying) and the original passports for verification. | For applicants below 18, the passport form asks for the passport number of either parent or legal guardian. The original passport is needed to verify the particulars; if the spouse name is not endorsed, a marriage certificate is required or the spouse name must be added to the parent’s passport. | [passport_instruction_booklet] |\n| **At least two of the following “out‑of‑turn” documents** (if you are applying for a passport on an out‑of‑turn basis):<br>• Aadhaar card/e‑Aadhaar<br>• Student Photo ID card issued by an educational institution<br>• Birth certificate (again, if you don’t have it as proof of DOB)<br>• Ration card<br>• PAN card | The booklet states that a minor below 18 who wants an out‑of‑turn passport must submit any two of these documents. | [passport_instruction_booklet] |\n| **Choice of validity** – either a 10‑year passport or a passport valid until you turn 18. | Minors between 15 and 18 can choose a 10‑year validity or a passport that expires when you reach 18. | [passport_instruction_booklet] |\n\n**Key points to remember**\n\n* The passport will be valid for 10 years or until you turn 18, whichever comes first.  \n* If either parent’s passport does not have the spouse name endorsed, you must provide a marriage certificate or get the spouse name added to the parent’s passport before the minor’s passport can be issued.  \n* All documents must be presented in original along with self‑attested copies.  \n\nIf any of the above details are unclear or you need the most up‑to‑date forms, please verify the requirements on the official Passport Seva website or contact the nearest Passport Seva Kendra.",
+      "coverage": {
+        "coverage": 1.0,
+        "n_found": 1,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "Birth Certificate",
+            "found": true
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "Proof of present address is required for a first passport at age 17",
+            "supported": true
+          },
+          {
+            "claim": "Proof of date of birth is required",
+            "supported": true
+          },
+          {
+            "claim": "Parents’ passport details (passport number or file number and original passports) are required",
+            "supported": true
+          },
+          {
+            "claim": "At least two of Aadhaar, Student Photo ID, Birth certificate, Ration card, PAN card are required for out‑of‑turn passport",
+            "supported": true
+          },
+          {
+            "claim": "Choice of validity: 10‑year passport or passport valid until age 18",
+            "supported": true
+          },
+          {
+            "claim": "Passport will be valid for 10 years or until you turn 18, whichever comes first",
+            "supported": true
+          },
+          {
+            "claim": "If parent’s passport lacks spouse name endorsement, marriage certificate or spouse name addition is required",
+            "supported": true
+          },
+          {
+            "claim": "All documents must be presented in original with self‑attested copies",
+            "supported": true
+          },
+          {
+            "claim": "If details unclear, verify on official Passport Seva website or contact nearest Passport Seva Kendra",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 10,
+      "hops": 2
+    }
+  },
+  {
+    "id": "passport_adult_ordinary_fresh",
+    "question": "What documents does an adult Indian citizen by birth need for a fresh ordinary passport?",
+    "error": "Error code: 400 - {'error': {'message': \"Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'json_validate_failed', 'failed_generation': ''}}"
+  },
+  {
+    "id": "dl_renewal_over_40",
+    "question": "What documents do I need to renew my private driving license if I am above 40 years old?",
+    "naive": {
+      "answer": "To renew a private driving licence when you are **above 40 years old**, you must submit the following documents (as per the application form and its annexure):\n\n| Document | Details / Notes |\n|----------|-----------------|\n| **Proof of address and age** | One of the documents listed in the annexure (e.g., Aadhaar Card, Electoral Roll, Passport, Birth Certificate, etc.) – choose one that serves both purposes. |\n| **Photograph** | A passport‑size photo (≤ 50 KB for online uploads). |\n| **Medical certificate (Form‑1A)** | Required **only** for renewal applicants who are above 40 years of age (or for transport licences). |\n| **Self‑Declaration for Physical Fitness (Form‑1)** | Needed for renewal applicants. |\n| **Other documents** | Any additional documents specified by the state government or required for your specific case (e.g., driving certificate, affidavit, etc.). |\n\nThese requirements are listed in the annexure of **FORM 2** under “LIST OF DOCUMENTS TO BE SUBMITTED OR UPLOADED BY THE APPLICANT” and the note that a medical certificate in Form‑1A is mandatory for renewal when the applicant is above 40 years of age.  \n\n**Source:** [dl_form2]",
+      "coverage": {
+        "coverage": 0.0,
+        "n_found": 0,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "Form-1A",
+            "found": false
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 0.8571428571428571,
+        "claims": [
+          {
+            "claim": "Documents required for renewal of private driving licence above 40 years old are listed in the application form and annexure",
+            "supported": true
+          },
+          {
+            "claim": "Proof of address and age can be provided by one of the documents listed in the annexure such as Aadhaar, Electoral Roll, Passport, Birth Certificate, etc.",
+            "supported": true
+          },
+          {
+            "claim": "A passport-size photograph (≤50 KB for online uploads) is required",
+            "supported": true
+          },
+          {
+            "claim": "A medical certificate (Form‑1A) is required only for renewal applicants above 40 years of age (or for transport licences)",
+            "supported": true
+          },
+          {
+            "claim": "A self‑declaration for physical fitness (Form‑1) is needed for renewal applicants",
+            "supported": false
+          },
+          {
+            "claim": "Other documents may be required as specified by the state government or for specific cases (e.g., driving certificate, affidavit, etc.)",
+            "supported": true
+          },
+          {
+            "claim": "These requirements are listed in the annexure of FORM 2 under “LIST OF DOCUMENTS TO BE SUBMITTED OR UPLOADED BY THE APPLICANT” and the note that a medical certificate in Form‑1A is mandatory for renewal when the applicant is above 40 years of age",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5
+    },
+    "agentic": {
+      "answer": "To renew a private driving licence when you are **above 40 years old**, you must submit the following documents (as per the application form and its annexure):\n\n| Document | Purpose / Note |\n|----------|----------------|\n| **Medical Certificate in Form‑1A** | Required specifically for renewal applicants who are over 40 years old (or for transport licences)【dl_form2】 |\n| **Self‑Declaration for Physical Fitness in Form‑1** | Needed for all renewals【dl_form2】 |\n| **Proof of Address and Age** (choose one that covers both) | Options include Aadhaar Card, Electoral Roll, Life Insurance Policy, Passport, School Certificate, Birth Certificate, or a pay‑slip issued by a government or local body【dl_form2】 |\n| **Photograph** | As per the annexure list【dl_form2】 |\n| **Other documents as specified by the State Government** | If any additional documents are required by your state【dl_form2】 |\n\nThese are the documents that must be enclosed or uploaded when applying for renewal of a private driving licence if you are over 40 years old. If you need further clarification, please verify the exact requirements on your state’s transport department website or by contacting the local Zonal Office/Transport Department.",
+      "coverage": {
+        "coverage": 0.0,
+        "n_found": 0,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "Form-1A",
+            "found": false
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "Medical Certificate in Form-1A is required for renewal applicants over 40 years old",
+            "supported": true
+          },
+          {
+            "claim": "Self-Declaration for Physical Fitness in Form-1 is required for all renewals",
+            "supported": true
+          },
+          {
+            "claim": "Proof of Address and Age can be provided using Aadhaar Card, Electoral Roll, Life Insurance Policy, Passport, School Certificate, Birth Certificate, or a pay‑slip issued by a government or local body",
+            "supported": true
+          },
+          {
+            "claim": "Photograph must be submitted as per annexure",
+            "supported": true
+          },
+          {
+            "claim": "Other documents may be required as specified by the State Government",
+            "supported": true
+          },
+          {
+            "claim": "These documents must be enclosed or uploaded when applying for renewal of a private driving licence if you are over 40 years old",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5,
+      "hops": 1
+    }
+  },
+  {
+    "id": "dl_validity_private",
+    "question": "What is the validity period of a private driving license in India?",
+    "naive": {
+      "answer": "The private driving licence in India is valid for **20 years from the date of issue or until the holder reaches 40 years of age, whichever comes first**. After the holder turns 40, the licence is issued for 10 years and thereafter for 5 years at a time. [dl_new_driver_license_faq]",
+      "coverage": {
+        "coverage": 0.0,
+        "n_found": 0,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "20 years",
+            "found": false
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "Private driving licence is valid for 20 years from issue or until holder reaches 40 years, whichever comes first",
+            "supported": true
+          },
+          {
+            "claim": "After holder turns 40, licence is issued for 10 years and thereafter for 5 years at a time",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5
+    },
+    "agentic": {
+      "answer": "The private driving licence in India is valid for **20 years from the date of issue or until the holder reaches 40 years of age, whichever comes first**. After the holder turns 40, the licence is renewed for **10 years, and thereafter for 5 years at a time**. [dl_new_driver_license_faq]",
+      "coverage": {
+        "coverage": 0.0,
+        "n_found": 0,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "20 years",
+            "found": false
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "Private driving licence is valid for 20 years from issue or until holder reaches 40 years, whichever comes first",
+            "supported": true
+          },
+          {
+            "claim": "After reaching 40, licence is renewed for 10 years, then for 5 years subsequently",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5,
+      "hops": 1
+    }
+  },
+  {
+    "id": "pan_proof_of_identity",
+    "question": "What documents can serve as proof of identity for a PAN card application for an Indian citizen?",
+    "naive": {
+      "answer": "For an Indian citizen applying for a PAN card, the excerpt lists **Aadhaar Card issued by the Unique Identification Authority of India (UIDAI)** as a valid proof of identity.  \n\n[pan_documents_required]",
+      "coverage": {
+        "coverage": 1.0,
+        "n_found": 1,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "Aadhaar",
+            "found": true
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "Aadhaar Card issued by UIDAI is a valid proof of identity for PAN card application for Indian citizen",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5
+    },
+    "agentic": {
+      "answer": "For an Indian citizen applying for a PAN card, the only document explicitly listed in the provided excerpts as acceptable proof of identity is:\n\n* **Aadhaar Card issued by the Unique Identification Authority of India** – a copy of the card bearing the applicant’s name is required as proof of identity.  \n\nThis is cited from the “Proof of Identity” section for Indian citizens in the PAN application FAQ. No other documents are mentioned in the excerpts for this category.",
+      "coverage": {
+        "coverage": 1.0,
+        "n_found": 1,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "Aadhaar",
+            "found": true
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "The only document explicitly listed in the provided excerpts as acceptable proof of identity is Aadhaar Card issued by the Unique Identification Authority of India",
+            "supported": true
+          },
+          {
+            "claim": "No other documents are mentioned in the excerpts for this category",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 6,
+      "hops": 2
+    }
+  },
+  {
+    "id": "pan_form_foreign_citizen",
+    "question": "What form should a foreign citizen use to apply for a PAN card?",
+    "naive": {
+      "answer": "Foreign citizens must use **Form 49AA** to apply for a PAN card.  \nThis is stated in the FAQ: “Form 49A (for Indian Citizens) … Form 49AA (for Foreign Citizens)”【pan_documents_required】.",
+      "coverage": {
+        "coverage": 1.0,
+        "n_found": 1,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "49AA",
+            "found": true
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "Foreign citizens must use Form 49AA to apply for a PAN card",
+            "supported": true
+          },
+          {
+            "claim": "This is stated in the FAQ: “Form 49A (for Indian Citizens) … Form 49AA (for Foreign Citizens)”",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5
+    },
+    "agentic": {
+      "answer": "A foreign citizen should use **Form 49AA** to apply for a PAN card.  \n[pan_documents_required]",
+      "coverage": {
+        "coverage": 1.0,
+        "n_found": 1,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "49AA",
+            "found": true
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "Foreign citizens should use Form 49AA to apply for a PAN card",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5,
+      "hops": 1
+    }
+  },
+  {
+    "id": "pmkisan_cutoff_date",
+    "question": "What is the cutoff date for determining land ownership eligibility under PM-KISAN?",
+    "naive": {
+      "answer": "The cutoff date for determining land‑ownership eligibility under the PM‑KISAN scheme is **1 February 2019**. This date is used to assess whether a family meets the eligibility criteria, except when the transfer of ownership occurs because of succession due to death, in which case the date does not apply. [pmkisan_clarification_clauses]",
+      "coverage": {
+        "coverage": 0.0,
+        "n_found": 0,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "01.02.2019",
+            "found": false
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "The cutoff date for determining land‑ownership eligibility under PM‑KISAN is 1 February 2019",
+            "supported": true
+          },
+          {
+            "claim": "This date is used to assess whether a family meets the eligibility criteria",
+            "supported": true
+          },
+          {
+            "claim": "The date does not apply when the transfer of ownership occurs because of succession due to death",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5
+    },
+    "agentic": {
+      "answer": "The cutoff date for determining land‑ownership eligibility under the PM‑KISAN scheme is **1 February 2019**【pmkisan_clarification_clauses】.",
+      "coverage": {
+        "coverage": 0.0,
+        "n_found": 0,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "01.02.2019",
+            "found": false
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "The cutoff date for determining land‑ownership eligibility under the PM‑KISAN scheme is 1 February 2019",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5,
+      "hops": 1
+    }
+  },
+  {
+    "id": "pmkisan_aadhaar_change",
+    "question": "Has the Aadhaar requirement for PM-KISAN changed recently, and what is the current rule?",
+    "naive": {
+      "answer": "Yes – the Aadhaar requirement for PM‑KISAN was recently amended.  \nUnder the updated Para 8.1 of the Operational Guidelines (amended 11 March 2019) the scheme now operates as follows:\n\n* **First installment** – Aadhaar can be collected where available; if it is not available, alternate prescribed documents may be used for identity verification.  \n* **Second installment onward** – Aadhaar number is compulsory for release of the second installment and for all subsequent installments.  \n* **All beneficiaries** – Must be compulsorily enrolled under Aadhaar, because payment from the third installment onward will be made only from an Aadhaar‑seeded database.  \n\nThus, the current rule is that Aadhaar is mandatory from the second installment onward, and all eligible farmers must be enrolled in Aadhaar for the scheme to continue.  \n\n[pmkisan_amendment_og]",
+      "coverage": {
+        "coverage": 1.0,
+        "n_found": 1,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "second installment",
+            "found": true
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "Aadhaar requirement for PM‑KISAN was recently amended",
+            "supported": true
+          },
+          {
+            "claim": "Updated Para 8.1 of the Operational Guidelines (amended 11 March 2019) governs the scheme",
+            "supported": true
+          },
+          {
+            "claim": "For the first installment, Aadhaar can be collected where available; if not, alternate prescribed documents may be used for identity verification",
+            "supported": true
+          },
+          {
+            "claim": "From the second installment onward, Aadhaar number is compulsory for release of the second installment and all subsequent installments",
+            "supported": true
+          },
+          {
+            "claim": "All beneficiaries must be compulsorily enrolled under Aadhaar because payment from the third installment onward will be made only from an Aadhaar‑seeded database",
+            "supported": true
+          },
+          {
+            "claim": "The current rule is that Aadhaar is mandatory from the second installment onward, and all eligible farmers must be enrolled in Aadhaar for the scheme to continue",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5
+    },
+    "agentic": {
+      "answer": "Yes – the operational guidelines were amended on 11 March 2019 to tighten the Aadhaar requirement for the PM‑KISAN scheme.  \nThe amended Para 8.1 now states that:\n\n* Aadhaar numbers must be collected for beneficiaries where they are available, and if not, alternate prescribed documents may be used for identity verification.  \n* All beneficiaries must be **compulsorily enrolled under Aadhaar**.  \n* **Payment of the second installment and onward** is only released if the beneficiary’s Aadhaar is available.  \n* **From the third installment onward**, payments will be made **solely on the basis of an Aadhaar‑seeded database**.  \n\nThus, the current rule is that Aadhaar is mandatory for the release of the second installment and for all subsequent installments, with alternate documents allowed only for the first installment if Aadhaar is not yet available.  \n\n[pmkisan_amendment_og]",
+      "coverage": {
+        "coverage": 1.0,
+        "n_found": 1,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "second installment",
+            "found": true
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "Operational guidelines were amended on 11 March 2019 to tighten the Aadhaar requirement for PM‑KISAN scheme",
+            "supported": true
+          },
+          {
+            "claim": "The amended Para 8.1 states that Aadhaar numbers must be collected for beneficiaries where they are available, and if not, alternate prescribed documents may be used for identity verification",
+            "supported": true
+          },
+          {
+            "claim": "All beneficiaries must be compulsorily enrolled under Aadhaar",
+            "supported": true
+          },
+          {
+            "claim": "Payment of the second installment and onward is only released if the beneficiary’s Aadhaar is available",
+            "supported": true
+          },
+          {
+            "claim": "From the third installment onward, payments will be made solely on the basis of an Aadhaar‑seeded database",
+            "supported": true
+          },
+          {
+            "claim": "The current rule is that Aadhaar is mandatory for the release of the second installment and for all subsequent installments, with alternate documents allowed only for the first installment if Aadhaar is not yet available",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5,
+      "hops": 1
+    }
+  },
+  {
+    "id": "scholarship_income_limit",
+    "question": "I am an ST student - what is the maximum family income allowed to be eligible for the post-matric scholarship?",
+    "naive": {
+      "answer": "The maximum family income allowed for an ST student to be eligible for the Post‑Matric Scholarship is **Rs. 2,50,000 per annum** (i.e., two lakh fifty thousand rupees) from all sources.  \n\n[scheme_post_matric_st_guidelines] page 5 – “family income from all sources does not exceed Rs.2,50,000/- per annum.”  \n[scheme_post_matric_st_guidelines] 3.2 – “The family income of student from all sources should not exceed Rs.2.50 lakh per annum.”",
+      "coverage": {
+        "coverage": 1.0,
+        "n_found": 1,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "2.50 lakh",
+            "found": true
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "Maximum family income allowed for an ST student to be eligible for the Post‑Matric Scholarship is Rs.2,50,000 per annum",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5
+    },
+    "agentic": {
+      "answer": "The maximum family income allowed for an ST student to be eligible for the Post‑Matric Scholarship is **Rs. 2.50 lakh per annum** (i.e., ₹2,50,000).  \n[scheme_post_matric_st_guidelines]",
+      "coverage": {
+        "coverage": 0.0,
+        "n_found": 0,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "2.50 lakh",
+            "found": false
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "Maximum family income allowed for an ST student to be eligible for the Post‑Matric Scholarship is Rs. 2.50 lakh per annum",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5,
+      "hops": 1
+    }
+  },
+  {
+    "id": "scholarship_multiple_scholarships",
+    "question": "Can a post-matric scholarship recipient also receive another scholarship at the same time?",
+    "naive": {
+      "answer": "No.  \nAccording to the Post‑Matric Scholarship Scheme for ST students, a scholarship holder can hold **only one scholarship/stipend at a time**. If a student is awarded another scholarship or stipend, they must choose between the two and inform the awarding authority through the Head of the Institution about the option taken.  \n\n[scheme_post_matric_st_guidelines] (page 5)",
+      "coverage": {
+        "coverage": 1.0,
+        "n_found": 1,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "only one scholarship",
+            "found": true
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "A post‑matric scholarship recipient cannot receive another scholarship at the same time",
+            "supported": true
+          },
+          {
+            "claim": "A scholarship holder under the Post‑Matric Scholarship Scheme can hold only one scholarship/stipend at a time",
+            "supported": true
+          },
+          {
+            "claim": "If a student is awarded another scholarship or stipend, they must choose between the two and inform the awarding authority through the Head of the Institution about the option taken",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5
+    },
+    "agentic": {
+      "answer": "No.  \nAccording to the scheme guidelines, a scholarship holder under the Post‑Matric Scholarship Scheme can hold **only one scholarship or stipend at a time**. If a student is awarded another scholarship or stipend, they must choose between the two and inform the awarding authority of their decision.  \n\n[scheme_post_matric_st_guidelines]",
+      "coverage": {
+        "coverage": 1.0,
+        "n_found": 1,
+        "n_total": 1,
+        "details": [
+          {
+            "fact": "only one scholarship",
+            "found": true
+          }
+        ]
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "A post‑matric scholarship recipient cannot receive another scholarship at the same time",
+            "supported": true
+          },
+          {
+            "claim": "The scheme guidelines state that a scholarship holder can hold only one scholarship or stipend at a time",
+            "supported": true
+          },
+          {
+            "claim": "If a student is awarded another scholarship or stipend, they must choose between the two",
+            "supported": true
+          },
+          {
+            "claim": "They must inform the awarding authority of their decision",
+            "supported": true
+          }
+        ],
+        "error": null
+      },
+      "n_chunks": 5,
+      "hops": 1
+    }
+  }
+]

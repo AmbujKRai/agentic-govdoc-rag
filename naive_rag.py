@@ -23,11 +23,15 @@ from qdrant_client import QdrantClient
 from sentence_transformers import SentenceTransformer
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from agent.groq_utils import chat_completion_with_retry
 from retrieval.config import EMBEDDING_MODEL, QDRANT_COLLECTION, QDRANT_PATH
 
 load_dotenv()
 
-GROQ_MODEL = "openai/gpt-oss-120b"
+# Overridable via env var so eval runs (or anyone whose daily quota on the
+# default model is exhausted) can point at a different Groq model without
+# code changes - see agent/graph.py and eval/faithfulness.py for the same pattern.
+GROQ_MODEL = os.environ.get("GROQ_GENERATION_MODEL", "openai/gpt-oss-120b")
 TOP_K = 5
 
 SYSTEM_PROMPT = """You are an assistant that answers questions about Indian \
@@ -72,7 +76,8 @@ def build_prompt(query: str, chunks: list[dict]) -> str:
 
 def generate_answer(groq_client: Groq, query: str, chunks: list[dict]) -> str:
     user_prompt = build_prompt(query, chunks)
-    resp = groq_client.chat.completions.create(
+    resp = chat_completion_with_retry(
+        groq_client,
         model=GROQ_MODEL,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
