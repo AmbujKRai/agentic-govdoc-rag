@@ -4,18 +4,22 @@ combination of two rankers, good for narrowing hundreds of chunks down to
 ~20 candidates. A cross-encoder scores each (query, chunk) pair jointly
 (more expensive, more accurate) to pick the final top-k that actually goes
 to the LLM.
-"""
 
-from sentence_transformers import CrossEncoder
+`sentence_transformers` is imported lazily inside get_reranker() rather
+than at module level - see retrieval/embedder.py's docstring for why this
+matters on a memory-constrained deployment.
+"""
 
 RERANK_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 
-_model: CrossEncoder | None = None
+_model = None
 
 
-def get_reranker() -> CrossEncoder:
+def get_reranker():
     global _model
     if _model is None:
+        from sentence_transformers import CrossEncoder
+
         _model = CrossEncoder(RERANK_MODEL)
     return _model
 
