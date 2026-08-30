@@ -25,6 +25,7 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
 from agent.graph import run as run_agentic
+from agent.memory import append_turn, clear_session, get_history, init_memory_db
 from tracker.models import SessionLocal, add_document, delete_document, init_db
 from tracker.reminder import check_all, get_alerts
 
@@ -37,6 +38,7 @@ app = FastAPI(
 @app.on_event("startup")
 def on_startup():
     init_db()
+    init_memory_db()
 
 
 def get_db():
@@ -51,6 +53,10 @@ def get_db():
 
 class ChatRequest(BaseModel):
     query: str
+    # Omit for a one-off question. Pass any stable string (a UUID from the
+    # client) to make follow-up questions work - prior turns in that session
+    # are used to rewrite context-dependent queries into standalone ones.
+    session_id: str | None = None
 
 
 class Source(BaseModel):
@@ -66,14 +72,20 @@ class ChatResponse(BaseModel):
     hops: int
     sufficient: bool
     doc_type_filter: str | None
+    session_id: str | None = None
+    # The standalone question actually used for retrieval. Differs from what
+    # the user typed only when a follow-up needed context resolved - exposed
+    # so the behaviour is inspectable rather than invisible.
+    resolved_query: str | None = None
 
 
 @app.post("/chat", response_model=ChatResponse)
-def chat(req: ChatRequest):
+def chat(req: ChatRequest, db: Session = Depends(get_db)):
     if not req.query.strip():
         raise HTTPException(status_code=400, detail="query must not be empty")
 
-    state = run_agentic(req.query)
+    history = get_history(db, req.session_id) if req.session_id else []
+    state = run_agentic(req.query, history=history)
 
     seen_doc_ids = set()
     sources = []
@@ -83,13 +95,29 @@ def chat(req: ChatRequest):
         seen_doc_ids.add(c["doc_id"])
         sources.append(Source(doc_id=c["doc_id"], title=c["title"], source_url=c["source_url"], page=c.get("page")))
 
+    answer = state["final_answer"] or ""
+
+    if req.session_id:
+        # Persist AFTER a successful turn, so a failed request doesn't leave
+        # a dangling user message that would corrupt the next rewrite.
+        append_turn(db, req.session_id, "user", req.query)
+        append_turn(db, req.session_id, "assistant", answer)
+
     return ChatResponse(
-        answer=state["final_answer"] or "",
+        answer=answer,
         sources=sources,
         hops=state["hop_count"],
         sufficient=state["sufficient"],
         doc_type_filter=state["doc_type_filter"],
+        session_id=req.session_id,
+        resolved_query=state["query"] if state.get("rewritten") else None,
     )
+
+
+@app.delete("/chat/{session_id}", status_code=204)
+def clear_chat_session(session_id: str, db: Session = Depends(get_db)):
+    """Forget a conversation - lets a user start fresh without a new id."""
+    clear_session(db, session_id)
 
 
 # ---------- /documents ----------

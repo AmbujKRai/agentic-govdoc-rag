@@ -32,6 +32,7 @@ from typing import TypedDict
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from agent.groq_utils import chat_completion_with_retry
+from agent.memory import rewrite_query
 from agent.router import classify_query
 from retrieval.retriever import retrieve
 
@@ -61,7 +62,10 @@ def merge_chunks(existing: list[dict], new: list[dict]) -> list[dict]:
 
 
 class AgentState(TypedDict):
-    query: str
+    query: str  # the standalone query everything downstream uses
+    raw_query: str  # exactly what the user typed, before any rewriting
+    history: list  # prior ChatTurn rows; empty for a stateless/first turn
+    rewritten: bool  # whether contextual rewriting actually changed the query
     doc_type_filter: str | None
     retrieved_chunks: list[dict]
     hop_count: int
@@ -111,6 +115,18 @@ def format_chunks(chunks: list[dict]) -> str:
         page_info = f", page {c['page']}" if c.get("page") else ""
         parts.append(f"[{c['doc_id']}] (source: {c['title']}{page_info}, {c['source_url']})\n{c['text']}")
     return "\n\n---\n\n".join(parts)
+
+
+def contextualize_node(state: AgentState) -> dict:
+    """Resolve a context-dependent follow-up into a standalone query BEFORE
+    routing or retrieval sees it. No-ops (and costs no LLM call) when there
+    is no history, so single-shot usage is unaffected."""
+    history = state.get("history") or []
+    if not history:
+        return {"rewritten": False}
+
+    standalone = rewrite_query(get_groq(), GENERATION_MODEL, history, state["raw_query"])
+    return {"query": standalone, "rewritten": standalone != state["raw_query"]}
 
 
 def route_node(state: AgentState) -> dict:
@@ -182,12 +198,14 @@ def generate_node(state: AgentState) -> dict:
 
 def build_graph():
     graph = StateGraph(AgentState)
+    graph.add_node("contextualize", contextualize_node)
     graph.add_node("route", route_node)
     graph.add_node("retrieve", retrieve_node)
     graph.add_node("check_sufficiency", check_sufficiency_node)
     graph.add_node("generate", generate_node)
 
-    graph.set_entry_point("route")
+    graph.set_entry_point("contextualize")
+    graph.add_edge("contextualize", "route")
     graph.add_edge("route", "retrieve")
     graph.add_edge("retrieve", "check_sufficiency")
     graph.add_conditional_edges(
@@ -207,9 +225,16 @@ def get_app():
     return _app
 
 
-def run(query: str) -> AgentState:
+def run(query: str, history: list | None = None) -> AgentState:
+    """history is an optional list of prior ChatTurn rows. Omit it (the
+    default) for stateless single-shot use - the CLI and eval harness both
+    rely on that, and it keeps their behaviour identical to before memory
+    existed."""
     initial_state: AgentState = {
         "query": query,
+        "raw_query": query,
+        "history": history or [],
+        "rewritten": False,
         "doc_type_filter": None,
         "retrieved_chunks": [],
         "hop_count": 0,

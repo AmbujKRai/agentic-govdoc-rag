@@ -25,13 +25,24 @@ Offline (build the index once):
   raw sources → fetch (Playwright for JS-rendered pages) → parse → chunk → embed + BM25 index
 
 Online (answer a query):
-  query → route (classify doc type)
+  query → contextualize (rewrite follow-ups into standalone questions)
+        → route (classify doc type)
         → retrieve: hybrid search (dense + BM25 → RRF) → cross-encoder rerank
         → check sufficiency ──insufficient──→ targeted follow-up query (max 2 hops) ──┐
                 │                                                                     │
                 └──sufficient──→ generate cited answer                                │
                                           ▲──────────────────────────────────────────┘
 ```
+
+**On multi-turn:** retrieval needs a *self-contained* query — embedding `"what about for a minor?"` retrieves noise, because that string means almost nothing alone. So conversation history isn't fed to the retriever; it's used to rewrite the turn into a standalone question first (history-aware retrieval):
+
+```
+history:  "What documents do I need for a passport?"
+new turn: "What about for a minor?"
+   → rewrite → "What documents does a minor need for a passport?" → route + retrieve
+```
+
+Pass a `session_id` to `/chat` to enable this; omit it for stateless one-off queries. A genuine topic change is deliberately left unrewritten rather than forced to relate to the previous turn.
 
 | Component | Choice | Why |
 |---|---|---|
@@ -140,7 +151,7 @@ python observability/phoenix_setup.py
 ```
 ingestion/      fetch → parse → chunk → embed + BM25 index
 retrieval/      hybrid search (dense + BM25 + RRF), cross-encoder rerank
-agent/          LangGraph state machine, query router, Groq retry wrapper
+agent/          LangGraph state machine, query router, conversation memory, Groq retry wrapper
 eval/           golden set, coverage + faithfulness scoring, naive-vs-agentic harness
 tracker/        SQLite document validity tracking, per-doc-type renewal windows
 observability/  Phoenix tracing, JSONL token/latency log
