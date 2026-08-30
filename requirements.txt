@@ -1,3 +1,9 @@
+# Runtime dependencies only - what the deployed API (api/main.py), the
+# agent graph, retrieval, the eval harness, and the tracker actually import.
+# Ingestion (PDF/HTML fetching+parsing) and the optional Phoenix tracing
+# demo have their own extra dependencies that the deployed image doesn't
+# need to pay the install-time/build-time cost for - see requirements-dev.txt.
+
 # CPU-only torch wheels are ~10x smaller than the default CUDA build and
 # it's all we need (no GPU in this deployment target)
 --extra-index-url https://download.pytorch.org/whl/cpu
@@ -21,20 +27,6 @@ rank-bm25
 # agent orchestration
 langgraph
 langchain-core
-
-# ingestion
-pypdf
-beautifulsoup4
-requests
-playwright  # for JS-rendered source pages - see ingestion/fetch_corpus.py
-
-# eval + observability
-# (faithfulness scoring is implemented directly against Groq in eval/faithfulness.py -
-# the `ragas` package's LLM factory unconditionally imports langchain_community's
-# Vertex AI integration, which fails without the unrelated Google Cloud SDK installed)
-arize-phoenix
-arize-phoenix-otel
-openinference-instrumentation-groq
 
 # tracker
 sqlalchemy

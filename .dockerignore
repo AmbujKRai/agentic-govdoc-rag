@@ -5,9 +5,10 @@ __pycache__/
 .git/
 .claude/
 
-# ingestion is a local/occasional tool, not part of the running API -
-# raw/processed corpus artifacts get mounted as a volume instead (see
-# docker-compose.yml), keeping the image itself lean
+# raw source PDFs/HTML are ingestion inputs, not needed at runtime.
+# data/qdrant_db is deliberately excluded even though it may exist locally -
+# it gets rebuilt fresh from chunks.jsonl at image-build time (see
+# Dockerfile) rather than copying a possibly-stale local copy in.
 data/raw/**/*.pdf
 data/raw/**/*.html
 data/qdrant_db/

@@ -1,0 +1,18 @@
+# Extra dependencies for local development only - not needed by the
+# deployed API, so not part of the Docker image. Install with:
+#   pip install -r requirements.txt -r requirements-dev.txt
+
+# ingestion: fetching + parsing raw sources (fetch_corpus.py, parse.py)
+pypdf
+beautifulsoup4
+requests
+playwright  # JS-rendered source pages - see ingestion/fetch_corpus.py
+
+# optional local tracing demo (observability/phoenix_setup.py) -
+# faithfulness scoring itself (eval/faithfulness.py) is implemented
+# directly against Groq and needs none of this; see that file's docstring
+# for why (the `ragas` package's LLM factory pulls in an unrelated,
+# unused Google Cloud Vertex AI dependency that isn't installed)
+arize-phoenix
+arize-phoenix-otel
+openinference-instrumentation-groq
