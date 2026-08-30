@@ -1,10 +1,14 @@
 """
 Embeds every chunk in data/processed/chunks.jsonl with a local sentence-
-transformers model and upserts them into a local, file-backed Qdrant
-collection (no server needed for development).
+transformers model and upserts them into Qdrant - a local file-backed store
+by default, or a real Qdrant server if QDRANT_URL is set (see
+retrieval/config.py; docker-compose.yml sets this to point at its qdrant
+service, since the file-backed store only allows one process to open it at
+a time).
 
 Usage:
     python ingestion/embed.py
+    QDRANT_URL=http://localhost:6333 python ingestion/embed.py   # index into a running server instead
 """
 
 import json
@@ -23,6 +27,7 @@ from retrieval.config import (
     EMBEDDING_MODEL,
     QDRANT_COLLECTION,
     QDRANT_PATH,
+    QDRANT_URL,
 )
 
 
@@ -46,8 +51,12 @@ def main():
     # instruction prefix - we apply the query-side prefix at query time only.
     vectors = model.encode(texts, show_progress_bar=True, batch_size=32)
 
-    print(f"Writing to local Qdrant store at {QDRANT_PATH} ...")
-    client = QdrantClient(path=str(QDRANT_PATH))
+    if QDRANT_URL:
+        print(f"Writing to Qdrant server at {QDRANT_URL} ...")
+        client = QdrantClient(url=QDRANT_URL)
+    else:
+        print(f"Writing to local Qdrant store at {QDRANT_PATH} ...")
+        client = QdrantClient(path=str(QDRANT_PATH))
 
     if client.collection_exists(QDRANT_COLLECTION):
         client.delete_collection(QDRANT_COLLECTION)

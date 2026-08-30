@@ -1,0 +1,16 @@
+venv/
+__pycache__/
+*.pyc
+.env
+.git/
+.claude/
+
+# ingestion is a local/occasional tool, not part of the running API -
+# raw/processed corpus artifacts get mounted as a volume instead (see
+# docker-compose.yml), keeping the image itself lean
+data/raw/**/*.pdf
+data/raw/**/*.html
+data/qdrant_db/
+
+observability/*.db
+observability/call_log.jsonl

@@ -18,7 +18,7 @@ from qdrant_client import QdrantClient
 from qdrant_client.http import models as qmodels
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from retrieval.config import BM25_INDEX_PATH, QDRANT_COLLECTION, QDRANT_PATH
+from retrieval.config import BM25_INDEX_PATH, QDRANT_COLLECTION, QDRANT_PATH, QDRANT_URL
 from retrieval.embedder import embed_query
 
 TOKEN_RE = re.compile(r"[a-z0-9]+")
@@ -43,7 +43,10 @@ def _load_bm25():
 def _get_qdrant_client() -> QdrantClient:
     global _qdrant_client
     if _qdrant_client is None:
-        _qdrant_client = QdrantClient(path=str(QDRANT_PATH))
+        if QDRANT_URL:
+            _qdrant_client = QdrantClient(url=QDRANT_URL)
+        else:
+            _qdrant_client = QdrantClient(path=str(QDRANT_PATH))
     return _qdrant_client
 
 

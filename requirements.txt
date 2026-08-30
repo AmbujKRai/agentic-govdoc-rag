@@ -1,3 +1,7 @@
+# CPU-only torch wheels are ~10x smaller than the default CUDA build and
+# it's all we need (no GPU in this deployment target)
+--extra-index-url https://download.pytorch.org/whl/cpu
+
 fastapi
 uvicorn[standard]
 pydantic
@@ -8,7 +12,7 @@ groq
 
 # embeddings + reranking (local, free)
 sentence-transformers
-torch --index-url https://download.pytorch.org/whl/cpu
+torch
 
 # retrieval
 qdrant-client
